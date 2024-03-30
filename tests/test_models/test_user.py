@@ -130,3 +130,51 @@ class TestUser(unittest.TestCase):
         user = User()
         string = "[User] ({}) {}".format(user.id, user.__dict__)
         self.assertEqual(string, str(user))
+
+    def test_save(self):
+        """test that save updates the updated_at attribute"""
+        user = User()
+        old_updated_at = user.updated_at
+        user.save()
+        self.assertLess(old_updated_at, user.updated_at)
+        self.assertEqual(type(user.updated_at), datetime)
+
+    def test_to_dict(self):
+        """test that to_dict returns a dictionary with proper attrs"""
+        user = User()
+        new_d = user.to_dict()
+        self.assertEqual(type(new_d), dict)
+        for attr in user.__dict__:
+            self.assertTrue(attr in new_d)
+        self.assertTrue("__class__" in new_d)
+
+        new_d = user.to_dict()
+        self.assertEqual(new_d["__class__"], "User")
+        self.assertIsInstance(new_d["created_at"], str)
+        self.assertIsInstance(new_d["updated_at"], str)
+
+        new_d = user.to_dict()
+        self.assertEqual(type(new_d["created_at"]), str)
+        self.assertEqual(type(new_d["updated_at"]), str)
+
+        new_d = user.to_dict()
+        self.assertEqual(new_d["created_at"], user.created_at.isoformat())
+        self.assertEqual(new_d["updated_at"], user.updated_at.isoformat())
+
+        new_d = user.to_dict()
+        self.assertEqual(new_d["first_name"], user.first_name)
+        self.assertEqual(new_d["last_name"], user.last_name)
+        self.assertEqual(new_d["email"], user.email)
+        self.assertEqual(new_d["password"], user.password)
+
+        new_d = user.to_dict()
+        self.assertEqual(new_d["first_name"], user.first_name)
+        self.assertEqual(new_d["last_name"], user.last_name)
+        self.assertEqual(new_d["email"], user.email)
+        self.assertEqual(new_d["password"], user.password)
+
+        new_d = user.to_dict()
+        self.assertEqual(new_d["first_name"], user.first_name)
+        self.assertEqual(new_d["last_name"], user.last_name)
+        self.assertEqual(new_d["email"], user.email)
+        self.assertEqual(new_d["password"], user.password)

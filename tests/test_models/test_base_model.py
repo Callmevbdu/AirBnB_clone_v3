@@ -158,3 +158,14 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(old_created_at, new_created_at)
         self.assertTrue(mock_storage.new.called)
         self.assertTrue(mock_storage.save.called)
+        @mock.patch('models.storage')
+    def test_save_with_no_changes(self, mock_storage):
+        """Test that save method does not update `updated_at` if
+        no changes were made"""
+        inst = BaseModel()
+        old_updated_at = inst.updated_at
+        inst.save()
+        new_updated_at = inst.updated_at
+        self.assertEqual(old_updated_at, new_updated_at)
+        self.assertFalse(mock_storage.new.called)
+        self.assertFalse(mock_storage.save.called)
