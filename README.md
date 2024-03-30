@@ -60,6 +60,7 @@ At Holberton, we have a lot of tests, and they all pass! Just for the Intranet i
 
 - 5,213 assertions (as of 08/20/2018)
 - 13,061 assertions (as of 01/25/2021)
+
 The following requirements must be met for your project:
 
 - all current tests must pass (don’t delete them…)
