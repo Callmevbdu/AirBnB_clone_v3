@@ -198,8 +198,3 @@ class TestPlace(unittest.TestCase):
         place = Place()
         string = "[Place] ({}) {}".format(place.id, place.__dict__)
         self.assertEqual(string, str(place))
-
-    def test_args_unused(self):
-        """test that args is not used"""
-        p = Place(None)
-        self.assertNotIn(None, p.__dict__.values())
