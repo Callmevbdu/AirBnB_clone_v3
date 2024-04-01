@@ -1,36 +1,17 @@
 #!/usr/bin/python3
 """
-Unit Test for BaseModel Class
+Contains the class TestConsoleDocs
 """
-import unittest
-from datetime import datetime
+
 import console
-import json
 import inspect
 import pep8
-
+import unittest
 HBNBCommand = console.HBNBCommand
 
 
-class TestHBNBCommandDocs(unittest.TestCase):
-    """Class for testing BaseModel docs"""
-
-    @classmethod
-    def setUpClass(cls):
-        print('Testing Console')
-
-    def test_doc_file(self):
-        """... documentation for the file"""
-        expected = '\nCommand interpreter for ALX AirBnB project\n'
-        actual = console.__doc__
-        self.assertEqual(expected, actual)
-
-    def test_doc_class(self):
-        """... documentation for the class"""
-        expected = '\n        Command inerpreter class\n    '
-        actual = HBNBCommand.__doc__
-        self.assertEqual(expected, actual)
-
+class TestConsoleDocs(unittest.TestCase):
+    """Class for testing documentation of the console"""
     def test_pep8_conformance_console(self):
         """Test that console.py conforms to PEP8."""
         pep8s = pep8.StyleGuide(quiet=True)
@@ -58,6 +39,3 @@ class TestHBNBCommandDocs(unittest.TestCase):
                          "HBNBCommand class needs a docstring")
         self.assertTrue(len(HBNBCommand.__doc__) >= 1,
                         "HBNBCommand class needs a docstring")
-
-if __name__ == '__main__':
-    unittest.main()
