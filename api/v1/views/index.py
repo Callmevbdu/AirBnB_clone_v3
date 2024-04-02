@@ -26,6 +26,7 @@ def get_stats():
     """
     stats of all objects
     """
+
     data = {
         "amenities": storage.count("Amenity"),
         "cities": storage.count("City"),
