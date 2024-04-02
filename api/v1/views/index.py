@@ -21,11 +21,10 @@ def get_status():
     return resp
 
 
-@app_views.route("/api/v1/stats", methods=['GET'], strict_slashes=False)
+@app_views.route("/stats", methods=['GET'], strict_slashes=False)
 def get_stats():
     """
-    stats of all objs route
-    :return: json of all objs
+    stats of all objects
     """
     data = {
         "amenities": storage.count("Amenity"),
