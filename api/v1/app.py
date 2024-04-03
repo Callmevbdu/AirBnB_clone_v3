@@ -28,7 +28,7 @@ def teardown(exception):
 @app.errorhandler(404)
 def handle_404(exception):
     """
-    handles 404 error
+    returns '404' error
     """
     data = {
         "error": "Not found"
