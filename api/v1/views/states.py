@@ -92,3 +92,4 @@ def state_delete_by_id(state_id):
     storage.save()
 
     return jsonify({})
+

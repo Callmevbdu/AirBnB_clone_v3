@@ -99,3 +99,4 @@ def city_delete_by_id(city_id):
     storage.save()
 
     return jsonify({})
+
