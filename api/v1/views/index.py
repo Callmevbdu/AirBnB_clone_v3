@@ -40,3 +40,4 @@ def get_stats():
     resp.status_code = 200
 
     return resp
+
